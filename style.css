@@ -2,3 +2,26 @@
     box-sizing: border-box;
     margin: 0;
 }
+
+.container{
+    background-color: red;
+    margin: auto;
+    margin-top: 20px;
+    width: 500px;
+    height: 650px;
+}
+
+.header{
+    background-color: blue;
+    width: auto;
+    height: 50px;
+}
+
+.screen{
+    background-color: green;
+    height: 200px;
+}
+
+.buttons{
+
+}
