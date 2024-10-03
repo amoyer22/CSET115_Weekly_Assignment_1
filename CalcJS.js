@@ -15,88 +15,68 @@ let twobtn = document.getElementById("2");
 let threebtn = document.getElementById("3");
 let plusbtn = document.getElementById("plus");
 let zerobtn = document.getElementById("0");
-let dotbtn = document.getElementById("dot");
 let equalbtn = document.getElementById("equal");
+let dotbtn = document.getElementById("dot");
+let split = document.getElementById("split");
 let numberinp = document.getElementById("number");
-var numberary = [];
+let prenumber = document.createElement("p")
+prenumber.style.color = "hsl(0,0%,80%)"
+var firstNumber = [];
+var secondNumber = [];
+function numberButtonClick(number){
+    firstNumber.push(number);
+    numberinp.innerHTML = firstNumber.join("");
+}
 
-if (
-  onebtn.addEventListener("click", function () {
-    numberary.push("1");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+onebtn.addEventListener("click", function () {
+numberButtonClick("1")
   })
-);
-else if (
+
   twobtn.addEventListener("click", function () {
-    numberary.push("2");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick('2')
   })
-);
-else if (
+
   threebtn.addEventListener("click", function () {
-    numberary.push("3");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick('3')
   })
-);
-else if (
+
   fourbtn.addEventListener("click", function () {
-    numberary.push("4");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick("4")
   })
-);
-else if (
+
   fivebtn.addEventListener("click", function () {
-    numberary.push("5");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick("5")
   })
-);
-else if (
+
   sixbtn.addEventListener("click", function () {
-    numberary.push("6");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick("6")
   })
-);
-else if (
+
   sevenbtn.addEventListener("click", function () {
-    numberary.push("7");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick("7")
   })
-);
-else if (
+
   eightbtn.addEventListener("click", function () {
-    numberary.push("8");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick("8")
   })
-);
-else if (
+
   ninebtn.addEventListener("click", function () {
-    numberary.push("9");
-    numberary = new Array(numberary.join(""));
-    numberinp.innerHTML = numberary;
+    numberButtonClick("9")
+  })
+if(
+  clearbtn.addEventListener("click", function () {
+    firstNumber.splice(`...`);
+    numberinp.innerHTML = firstNumber;
+  }));
+else if(
+  plusbtn.addEventListener("click", function () {
+    firstNumber.push("+");
+    firstNumber = new Array(firstNumber.join(""));
+    prenumber.innerHTML = firstNumber;
+    split.appendChild(prenumber);
+    secondNumber
   })
 );
-else if (
-    clearbtn.addEventListener("click", function () {
-      numberary.splice(`...`);
-      
-      numberinp.innerHTML = numberary;
-    })
-  );
-  else if (
-    add.addEventListener("click", function () {
-      numberary.push("+");
-      numberary = new Array(numberary.join(""));
-      numberinp.innerHTML = numberary;
-    })
-  );
 // calculator();
 
 // function calculator() {
