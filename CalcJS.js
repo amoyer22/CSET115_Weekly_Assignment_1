@@ -70,9 +70,10 @@ if(
   }));
 else if(
     deletebtn.addEventListener("click", function(){
-    firstNumber.splice(firstNumber.length-1);
-    numberinp.innerHTML = firstNumber;
-    firstNumber.join("")
+        firstNumber.join(``);
+        firstNumber = firstNumber.splice(0, firstNumber.length - 1);
+        numberinp.innerHTML = firstNumber;
+        numberinp.innerHTML.trim(",");
     })
 );
 else if(
