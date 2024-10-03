@@ -69,6 +69,13 @@ if(
     numberinp.innerHTML = firstNumber;
   }));
 else if(
+    deletebtn.addEventListener("click", function(){
+    firstNumber.splice(firstNumber.length-1);
+    numberinp.innerHTML = firstNumber;
+    firstNumber.join("")
+    })
+);
+else if(
   plusbtn.addEventListener("click", function () {
     firstNumber.push("+");
     firstNumber = new Array(firstNumber.join(""));
