@@ -104,7 +104,14 @@ multiply.addEventListener("click", function () {
 divide.addEventListener("click", function () {
   operatorButtonClick("÷");
 });
-
+else if(
+    deletebtn.addEventListener("click", function(){
+        firstNumber.join(``);
+        firstNumber = firstNumber.splice(0, firstNumber.length - 1);
+        numberinp.innerHTML = firstNumber;
+        numberinp.innerHTML.trim(",");
+    })
+);
 // calculator();
 
 // function calculator() {
