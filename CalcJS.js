@@ -93,6 +93,9 @@ ninebtn.addEventListener("click", function () {
 dot.addEventListener("click", function () {
   numberButtonClick(".");
 });
+zerobtn.addEventListener("click", function () {
+  numberButtonClick("0");
+});
 clearbtn.addEventListener("click", function () {
   firstNumber.splice(0);
   secondNumber.splice(0);
@@ -127,7 +130,6 @@ sqr.addEventListener("click", function () {
       numberinp.innerHTML = sqrsum.toString();
       firstNumber = [sqrsum.toString()];
       secondNumber = [];
-      
       clicked = false;
       break;
     default:
@@ -144,7 +146,7 @@ percent.addEventListener("click", function () {
       firstNumber = [percentsum.toString()];
       secondNumber = [];
       numberinp.innerHTML = firstNumber;
-      firstNumber = []
+      firstNumber = [];
       clicked = false;
       break;
     default:
