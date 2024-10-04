@@ -186,12 +186,9 @@ divide.addEventListener("click", function () {
 if (
   deletebtn.addEventListener("click", function () {
     firstNumber.pop();
-        firstNumber = firstNumber.join(``)
-    
-
+    firstNumber = firstNumber.join(``);
     numberinp.innerHTML = firstNumber;
-    firstNumber= firstNumber.split("")
-    
+    firstNumber = firstNumber.split("");
   })
 );
 // calculator();
