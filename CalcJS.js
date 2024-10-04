@@ -23,7 +23,9 @@ let prenumber = document.createElement("p");
 let radic = document.getElementById("radic");
 let sqr = document.getElementById("sqr");
 let dot = document.getElementById("dot");
+let percent = document.getElementById("percent");
 prenumber.style.color = "hsl(0,0%,80%)";
+
 let clicked = false;
 var firstNumber = [];
 var secondNumber = [];
@@ -89,8 +91,8 @@ ninebtn.addEventListener("click", function () {
   numberButtonClick("9");
 });
 dot.addEventListener("click", function () {
-    numberButtonClick(".");
-  });
+  numberButtonClick(".");
+});
 clearbtn.addEventListener("click", function () {
   firstNumber.splice(0);
   secondNumber.splice(0);
@@ -103,8 +105,7 @@ radic.addEventListener("click", function () {
   switch (true) {
     case num1 >= 0:
       let sqrtresult = Math.sqrt(num1);
-      prenumber.innerHTML =
-        "√(" + firstNumber.join("") + ") = ";
+      prenumber.innerHTML = "√(" + firstNumber.join("") + ") = ";
       split.appendChild(prenumber);
       numberinp.innerHTML = sqrtresult.toString();
       firstNumber = [sqrtresult.toString()];
@@ -112,28 +113,41 @@ radic.addEventListener("click", function () {
       clicked = false;
       break;
     default:
-        numberinp.innerHTML = "no";
+      numberinp.innerHTML = "error";
   }
 });
 sqr.addEventListener("click", function () {
-    let num1 = Number(firstNumber.join("")); 
-    switch(true){
-        case num1 >=0:
-            let sqrsum = num1 * num1;
-            
-      prenumber.innerHTML =
-        "sqr (" + firstNumber.join("") + ") = ";
+  let num1 = Number(firstNumber.join(""));
+  switch (true) {
+    case num1 >= 0:
+      let sqrsum = num1 * num1;
+
+      prenumber.innerHTML = "sqr (" + firstNumber.join("") + ") = ";
       split.appendChild(prenumber);
       numberinp.innerHTML = sqrsum.toString();
       firstNumber = [sqrsum.toString()];
       secondNumber = [];
-      clicked - false;
+      clicked = false;
       break;
-      default:
-        numberinp.innerHTML = "no";
-        break;
-    }
-  });
+    default:
+      numberinp.innerHTML = "error";
+      break;
+  }
+});
+percent.addEventListener("click", function () {
+  let num1 = Number(firstNumber.join(""));
+  switch (true) {
+    case num1 >= 0:
+      let percentsum = 0.01 * num1;
+      prenumber.innerHTML = percentsum.toString();
+      firstNumber = [percentsum.toString()];
+      secondNumber = [];
+      clicked = false;
+      break;
+    default:
+      numberinp.innerHTML = "error";
+  }
+});
 equalbtn.addEventListener("click", function () {
   let num1 = Number(firstNumber.join(""));
   let num2 = Number(secondNumber.join(""));
@@ -154,8 +168,7 @@ equalbtn.addEventListener("click", function () {
     default:
       sum = "error";
   }
-  prenumber.innerHTML =
-  num1 + " " + operator + " " + num2 + " " +"=";
+  prenumber.innerHTML = num1 + " " + operator + " " + num2 + " " + "=";
   numberinp.innerHTML = sum.toString();
 });
 plusbtn.addEventListener("click", function () {
@@ -170,6 +183,17 @@ multiply.addEventListener("click", function () {
 divide.addEventListener("click", function () {
   operatorButtonClick("÷");
 });
+if (
+  deletebtn.addEventListener("click", function () {
+    firstNumber.pop();
+        firstNumber = firstNumber.join(``)
+    
+
+    numberinp.innerHTML = firstNumber;
+    firstNumber= firstNumber.split("")
+    
+  })
+);
 // calculator();
 
 // function calculator() {
