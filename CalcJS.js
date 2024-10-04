@@ -122,7 +122,7 @@ sqr.addEventListener("click", function () {
             let sqrsum = num1 * num1;
             
       prenumber.innerHTML =
-        "sqr(" + firstNumber.join("") + ") = ";
+        "sqr (" + firstNumber.join("") + ") = ";
       split.appendChild(prenumber);
       numberinp.innerHTML = sqrsum.toString();
       firstNumber = [sqrsum.toString()];
