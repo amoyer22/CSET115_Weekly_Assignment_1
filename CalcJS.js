@@ -170,13 +170,6 @@ multiply.addEventListener("click", function () {
 divide.addEventListener("click", function () {
   operatorButtonClick("÷");
 });
-if(
-    deletebtn.addEventListener("click", function(){
-        firstNumber.join(``);
-        firstNumber = firstNumber.splice(0, firstNumber.length - 1);
-        numberinp.innerHTML = firstNumber;
-    })
-);
 // calculator();
 
 // function calculator() {
