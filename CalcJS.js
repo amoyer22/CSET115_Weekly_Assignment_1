@@ -20,8 +20,11 @@ let dotbtn = document.getElementById("dot");
 let split = document.getElementById("split");
 let numberinp = document.getElementById("number");
 let prenumber = document.createElement("p");
+let radic = document.getElementById("radic");
+let sqr = document.getElementById("sqr");
+let dot = document.getElementById("dot");
 prenumber.style.color = "hsl(0,0%,80%)";
-var clicked = false;
+let clicked = false;
 var firstNumber = [];
 var secondNumber = [];
 function numberButtonClick(number) {
@@ -35,12 +38,18 @@ function numberButtonClick(number) {
 }
 function operatorButtonClick(op) {
   if (!clicked) {
-
-    operator = op
-    prenumber.innerHTML = firstNumber.join("") + " " + operator;
-    split.appendChild(prenumber);
-    numberinp.innerHTML = "";
-    clicked = true;
+    operator = op;
+    switch (operator) {
+      case "+":
+      case "-":
+      case "÷":
+      case "*":
+        prenumber.innerHTML = firstNumber.join("") + " " + operator;
+        split.appendChild(prenumber);
+        numberinp.innerHTML = "";
+        clicked = true;
+        break;
+    }
   }
 }
 
@@ -79,18 +88,75 @@ eightbtn.addEventListener("click", function () {
 ninebtn.addEventListener("click", function () {
   numberButtonClick("9");
 });
+dot.addEventListener("click", function () {
+    numberButtonClick(".");
+  });
 clearbtn.addEventListener("click", function () {
-  firstNumber.splice(`...`);
-  secondNumber.splice(`...`);
+  firstNumber.splice(0);
+  secondNumber.splice(0);
   clicked = false;
   numberinp.innerHTML = firstNumber;
   prenumber.innerHTML = secondNumber;
 });
+radic.addEventListener("click", function () {
+  let num1 = Number(firstNumber.join(""));
+  switch (true) {
+    case num1 >= 0:
+      let sqrtresult = Math.sqrt(num1);
+      prenumber.innerHTML =
+        "√(" + firstNumber.join("") + ") = ";
+      split.appendChild(prenumber);
+      numberinp.innerHTML = sqrtresult.toString();
+      firstNumber = [sqrtresult.toString()];
+      secondNumber = [];
+      clicked = false;
+      break;
+    default:
+        numberinp.innerHTML = "no";
+  }
+});
+sqr.addEventListener("click", function () {
+    let num1 = Number(firstNumber.join("")); 
+    switch(true){
+        case num1 >=0:
+            let sqrsum = num1 * num1;
+            
+      prenumber.innerHTML =
+        "sqr (" + firstNumber.join("") + ") = ";
+      split.appendChild(prenumber);
+      numberinp.innerHTML = sqrsum.toString();
+      firstNumber = [sqrsum.toString()];
+      secondNumber = [];
+      clicked - false;
+      break;
+      default:
+        numberinp.innerHTML = "no";
+        break;
+    }
+  });
 equalbtn.addEventListener("click", function () {
   let num1 = Number(firstNumber.join(""));
   let num2 = Number(secondNumber.join(""));
-  let sum = num1 + num2;
-  numberinp.innerHTML === sum;
+  let sum;
+  switch (operator) {
+    case "+":
+      sum = num1 + num2;
+      break;
+    case "-":
+      sum = num1 - num2;
+      break;
+    case "*":
+      sum = num1 * num2;
+      break;
+    case "÷":
+      sum = num1 / num2;
+      break;
+    default:
+      sum = "error";
+  }
+  prenumber.innerHTML =
+  num1 + " " + operator + " " + num2 + " " +"=";
+  numberinp.innerHTML = sum.toString();
 });
 plusbtn.addEventListener("click", function () {
   operatorButtonClick("+");
