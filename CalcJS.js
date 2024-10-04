@@ -127,6 +127,7 @@ sqr.addEventListener("click", function () {
       numberinp.innerHTML = sqrsum.toString();
       firstNumber = [sqrsum.toString()];
       secondNumber = [];
+      
       clicked = false;
       break;
     default:
@@ -142,6 +143,8 @@ percent.addEventListener("click", function () {
       prenumber.innerHTML = percentsum.toString();
       firstNumber = [percentsum.toString()];
       secondNumber = [];
+      numberinp.innerHTML = firstNumber;
+      firstNumber = []
       clicked = false;
       break;
     default:
@@ -183,14 +186,20 @@ multiply.addEventListener("click", function () {
 divide.addEventListener("click", function () {
   operatorButtonClick("÷");
 });
-if (
-  deletebtn.addEventListener("click", function () {
+
+deletebtn.addEventListener("click", function () {
+  if (!clicked) {
     firstNumber.pop();
     firstNumber = firstNumber.join(``);
     numberinp.innerHTML = firstNumber;
     firstNumber = firstNumber.split("");
-  })
-);
+  } else if (clicked) {
+    secondNumber.pop();
+    secondNumber = secondNumber.join(``);
+    numberinp.innerHTML = secondNumber;
+    secondNumber = secondNumber.split("");
+  }
+});
 // calculator();
 
 // function calculator() {
